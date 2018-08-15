@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LoL Analytics - Data driven improvement</title>
+    <meta name="description" content="LoL Analytics is a proof of concept">
+    <meta name="keywords" content="bootstrap theme, portfolio template, digital agency, onepage, mobile responsive, spirit8, free website, free theme, themeforces themes, themeforces wordpress themes, themeforces bootstrap theme">
+    <meta name="author" content="some website">
+    
+    <!-- Favicons
+    ================================================== -->
+
+l   <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome/css/font-awesome.css') }}">
+
+    <!-- slider
+    ================================================== -->
+    <link href="{{ url_for('static',filename='css/owl.carousel.css')}}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static',filename='css/owl.theme.css')}}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{{ url_for('static',filename='js/modernizr.custom.js') }}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('home') }}">LoL Analytics</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ url_for('home') }}" class="page-scroll">Home</a></li>
+              <li><a href="{{ url_for('about') }}" class="page-scroll">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Home Page
+    ==========================================-->
+    <div id="tf-stats" class="text-center">
+        <div class="overlay">
+            <div class="content">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h2>Greetings Summoner!</h2>
+                            <h2>
+                            <h2>
+                            <div class="clearfix"></div>
+                            <h3> Hello {{ summoner_name }}</h3>
+                            <h2>
+                        <h4>You've won {{ value[1][0] }} of your last {{ value[1][1] }} games</h4>
+                        </div>
+                        
+                  </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- Greetings Summoner
+    ==========================================-->
+    <div id="tf-return_stats_well">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static',filename='img/thumbs_up.jpg') }}" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h2> <strong> Great Work!</strong></h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <h4>You've won {{ value[1][0] }} of your last {{ value[1][1] }} games</h4>
+                        
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tf-return_stats_bad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static',filename='img/thumbs_down.png') }}" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h2>  <strong> But perhaps you could work on...</strong></h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <h4>You've not won {{ value[1][1] - value[1][0] }} of your last {{ value[1][1] }} games</h4>
+                        
+                  </div>
+                </div>
+            </div>
+        </div>
+    <div id="tf-return_stats_improve">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static',filename='img/work_on.png') }}" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h4>Greetings Summoner!</h4>
+                            <h2> <strong> Here's a pro tip</strong></h2>
+                            <hr>
+                            <div class="clearfix"></div>
+                        </div>
+                        <h4> Win the remaining games</h4>
+                        
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2015. Designed by <a href="https://dribbble.com/jennpereira">The Architect</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery.1.11.1.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/SmoothScroll.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/jquery.isotope.js') }}"></script>
+
+    <script src="{{ url_for('static', filename = 'js/owl.carousel.js') }}"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+
+  </body>
+</html>
